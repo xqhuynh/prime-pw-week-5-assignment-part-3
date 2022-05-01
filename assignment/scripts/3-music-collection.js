@@ -39,6 +39,28 @@ function findByArtist(name) {
 }
 
 // Test function
-findByArtist('Nas');
-findByArtist('Notorious Big');
-findByArtist('Britney Spears');
+findByArtist("Nas");
+findByArtist("Notorious Big");
+findByArtist("Britney Spears");
+findByArtist("Nas");
+
+// Stretch Goals
+console.log("Stretch Goals");
+// search function
+
+function search(artist, year) {
+  let newCollection = [];
+  for (album in collection) {
+    if (
+      artist === collection[album].artist &&
+      year === collection[album].yearPublished
+    ) {
+      return collection[album];
+    }
+  }
+  return newCollection;
+}
+console.log(search("Nas", 2001));
+console.log(search("Nas", 1994)); // return undefined, year doesn't match
+console.log(search("Thriller", 1997)); // undefined, year doesn't match
+console.log(search('Michael Jackson', 1998));
