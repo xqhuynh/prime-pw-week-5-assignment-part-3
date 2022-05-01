@@ -39,10 +39,10 @@ function findByArtist(name) {
 }
 
 // Test function
-findByArtist("Nas");
-findByArtist("Notorious Big");
-findByArtist("Britney Spears");
-findByArtist("Nas");
+findByArtist("Nas");    // Return Nas
+findByArtist("Notorious Big");  // Return Notorious Big
+findByArtist("Britney Spears"); // Return empty array
+findByArtist("Nas");    // Return Nas
 
 // Stretch Goals
 console.log("Stretch Goals");
@@ -61,6 +61,6 @@ function search(artist, year) {
   return newCollection;
 }
 console.log(search("Nas", 2001));
-console.log(search("Nas", 1994)); // return undefined, year doesn't match
-console.log(search("Thriller", 1997)); // undefined, year doesn't match
+console.log(search("Nas", 1994)); // Return empty array, year doesn't match
+console.log(search("Thriller", 1997)); // Return empty array, year doesn't match
 console.log(search('Michael Jackson', 1998));
