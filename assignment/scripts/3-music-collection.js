@@ -26,7 +26,7 @@ console.log(collection);
 // // showCollection function to loop over array and return album info -----------------------------------------------------
 function showCollection(array) {
   // Log array length
-  console.log(array.length);
+  console.log("Length of array: " + array.length);
   for (let album of collection) {
     // Log info formatted like: `TITLE by ARTIST, published in YEAR`
     console.log(
@@ -52,3 +52,9 @@ function findByArtist(artist) {
 
 // Test findByArtist function
 let nas = findByArtist("Nas");
+console.log(`Should return two array objects:`, nas); // Should return two array objects
+let artistNotFound = findByArtist("Tupac");
+console.log(`Should return empty array:`, artistNotFound); // Should return empty array
+let mj = findByArtist("Michael Jackson");
+console.log(`Should return Michael Jackson's album:`, mj);
+
