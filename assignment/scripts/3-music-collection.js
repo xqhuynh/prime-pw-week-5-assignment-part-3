@@ -1,66 +1,54 @@
 console.log("***** Music Collection *****");
+
+// addToCollection function to add album to collection ---------------------------------------------------------------------
+// Create new variable called collection and set to empty array
 let collection = [];
-// addToCollection function
 function addToCollection(title, artist, yearPublished) {
-  collection.push({ title, artist, yearPublished });
-  return [title, artist, yearPublished];
+  // Create empty object w/title, artist, and yearPublished properties
+  let albums = {
+    title: title,
+    artist: artist,
+    yearPublished: yearPublished,
+  };
+  // Push albums to end of collection array and return albums array
+  collection.push(albums);
+  return console.log(albums);
 }
-// Test function
-console.log(addToCollection("Stillmatic", "Nas", 2001));
-console.log(addToCollection("Illmatic", "Nas", 1991));
-console.log(addToCollection("Californication", "Red Hot Chili Peppers", 1991));
-console.log(addToCollection("Ready To Die", "Notorious Big", 1990));
-console.log(addToCollection("Reasonable Doubt", "Jay-Z", 1994));
-console.log(addToCollection("Thriller", "Michael Jackson", 1998));
+// Add 6 albums to collection
+addToCollection("Stillmatic", "Nas", 2001);
+addToCollection("Illmatic", "Nas", 1994);
+addToCollection("Californication", "Red Hot Chili Peppers", 1999);
+addToCollection("Ready To Die", "Notorious Big", 1994);
+addToCollection("Reasonable Doubt", "Jay-Z", 1996);
+addToCollection("Thriller", "Michael Jackson", 1982);
 console.log(collection);
 
-// showCollection function to loop over array and return album info
+// // showCollection function to loop over array and return album info -----------------------------------------------------
 function showCollection(array) {
-  console.log(`Number of items in array: ${collection.length}`);
-  for (let album in collection) {
+  // Log array length
+  console.log(array.length);
+  for (let album of collection) {
+    // Log info formatted like: `TITLE by ARTIST, published in YEAR`
     console.log(
-      `${collection[album].title} by ${collection[album].artist}, published in ${collection[album].yearPublished}`
+      `${album.title} by ${album.artist}, published in ${album.yearPublished}`
     );
   }
 }
-// Test function by using collection array
+// Call showCollection function with collection argument
 showCollection(collection);
 
-// findByArtist function
-function findByArtist(name) {
-  let resultsArray = [];
-  for (let album in collection) {
-    if (name === collection[album].artist) {
-      resultsArray.push(name);
-      return console.log(resultsArray);
+// findByArtist function to find artist and add to new array ---------------------------------------------------------------
+function findByArtist(artist) {
+  // set empty array to add matching artists
+  let albumMatch = [];
+  for (let album of collection) {
+    if (album.artist === artist) {
+      // Push each album to albumMatch array
+      albumMatch.push(album);
     }
   }
-  return console.log(resultsArray);
+  return albumMatch;
 }
 
-// Test function
-findByArtist("Nas");    // Return Nas
-findByArtist("Notorious Big");  // Return Notorious Big
-findByArtist("Britney Spears"); // Return empty array
-findByArtist("Nas");    // Return Nas
-
-// Stretch Goals
-console.log("Stretch Goals");
-// search function
-
-function search(artist, year) {
-  let newCollection = [];
-  for (album in collection) {
-    if (
-      artist === collection[album].artist &&
-      year === collection[album].yearPublished
-    ) {
-      return collection[album];
-    }
-  }
-  return newCollection;
-}
-console.log(search("Nas", 2001));
-console.log(search("Nas", 1994)); // Return empty array, year doesn't match
-console.log(search("Thriller", 1997)); // Return empty array, year doesn't match
-console.log(search('Michael Jackson', 1998));
+// Test findByArtist function
+let nas = findByArtist("Nas");
