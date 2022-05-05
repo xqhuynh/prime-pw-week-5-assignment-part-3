@@ -8,7 +8,7 @@ function addToCollection(title, artist, yearPublished) {
   let albums = {
     title: title,
     artist: artist,
-    yearPublished: yearPublished,
+    year: yearPublished,
   };
   // Push albums to end of collection array and return albums array
   collection.push(albums);
@@ -59,7 +59,7 @@ let mj = findByArtist("Michael Jackson");
 console.log(`Should return Michael Jackson's album:`, mj);
 
 console.log("***** Stretch Goals *****");
-// // search Function -----------------------------------------------------
+// search Function to find albums matching artist and year --------------------------------------------------------------------------------
 function search(artist, year) {
   // Create empty array to store search results
   let resultsMatch = [];
@@ -84,5 +84,3 @@ let tupacSearch = search("Tupac", 1999); // No artist in array
 console.log(`Should return empty array:`, tupacSearch);
 let emptySearch = search(); // No argument passed
 console.log(`Should return empty array:`, emptySearch);
-
-
